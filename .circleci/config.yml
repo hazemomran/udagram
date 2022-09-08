@@ -10,11 +10,6 @@ jobs:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
-<<<<<<< HEAD
-    working_directory: ~/udagram/udagram-frontend
-=======
-    working_directory: ~/udagram/udagram-api
->>>>>>> 56ebcf3db27348cd5e6d31641779fd05663e2b77
     steps:
       # install node and checkout code
       - node/install:
