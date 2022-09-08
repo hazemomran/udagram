@@ -92,3 +92,4 @@ workflows:
       - deploy:
           requires:
             - hold
+          - deploy
