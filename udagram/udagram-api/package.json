@@ -14,7 +14,7 @@
     "prod": "npx tsc && node ./server.js",
     "clean": "rm -rf || true",
     "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
-    "setenv": "eb setenv POSTGRES_HOST=database-1.csj28cvwath0.us-east-1.rds.amazonaws.com POSTGRES_USERNAME=postgres POSTGRES_DB=postgres POSTGRES_PASSWORD=thispass dbPORT=5432 PORT=8080",
+    "setenv": "eb setenv POSTGRES_HOST=database-1.csj28cvwath0.us-east-1.rds.amazonaws.com POSTGRES_USERNAME=postgres POSTGRES_DB=postgres POSTGRES_PASSWORD=thispass dbPORT=5432 PORT=8080 AWS_ACCESS_KEY_ID=AKIA533DFTA66VO2D37N AWS_DEFAULT_REGION=us-east-1 AWS_PROFILE=default AWS_SECRET_ACCESS_KEY=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",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
