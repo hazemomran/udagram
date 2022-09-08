@@ -70,18 +70,18 @@ jobs:
           # TODO: Install, build, deploy in both apps
           command: |
             echo "# TODO: Install, build, deploy in both apps"
-            cd udagram
-            cd udagram-frontend
-            aws s3 cp --recursive --acl public-read ./www s3://mynewapp-udacity
+           
       - run:
          name: Deploy API
          command: |
+            eb init
             eb deploy
             
 workflows:
   udagram:
     jobs:
       - build
+      - deploy
       - hold:
           filters:
             branches:
@@ -93,4 +93,4 @@ workflows:
       - deploy:
           requires:
             - hold
-      - deploy
+      
