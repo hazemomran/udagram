@@ -43,6 +43,7 @@ jobs:
       - run:
           name: Front-End Build
           command: |
+            echo "TODO: Build the frontend app"
             cd udagram
             cd udagram-frontend
             npm run build
@@ -50,7 +51,7 @@ jobs:
       - run:
           name: API Build
           command: |
-            echo "Build the backend API"
+            echo "TODO: Build the backend API"
             cd udagram
             cd udagram-api
             npm run build
@@ -67,20 +68,21 @@ jobs:
       - checkout
       - run:
           name: Deploy Frontend
-          # TODO: Install, build, deploy in both apps
           command: |
             echo "# TODO: Install, build, deploy in both apps"
-           
+            cd udagram
+            cd udagram-frontend
+            aws s3 cp --recursive --acl public-read ./www s3://mynewapp-udacity
       - run:
-         name: Deploy API
-         command: |
-           echo "# TODO: Install, build, deploy in both apps"
-            
+          name: Deploy API
+          command: |
+            cd udagram
+            cd udagram-api
+            eb deploy
 workflows:
   udagram:
     jobs:
       - build
-      - deploy
       - hold:
           filters:
             branches:
@@ -90,6 +92,6 @@ workflows:
           requires:
             - build
       - deploy:
+        - deploy
           requires:
             - hold
-      
