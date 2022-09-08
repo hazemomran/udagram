@@ -45,7 +45,8 @@ jobs:
           name: API Build
           command: |
             echo "TODO: Build the backend API"
-            cd udagram\udagram-api
+            cd udagram
+            cd udagram-api
             npm run build
   # deploy step will run only after manual approval
   deploy:
