@@ -43,7 +43,7 @@ jobs:
       - run:
           name: Front-End Build
           command: |
-            echo "TODO: Build the frontend app"
+            echo "Build the frontend app"
             cd udagram
             cd udagram-frontend
             npm run build
@@ -51,7 +51,7 @@ jobs:
       - run:
           name: API Build
           command: |
-            echo "TODO: Build the backend API"
+            echo "Build the backend API"
             cd udagram
             cd udagram-api
             npm run build
