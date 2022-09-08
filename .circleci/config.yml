@@ -43,7 +43,6 @@ jobs:
       - run:
           name: Front-End Build
           command: |
-            echo "TODO: Build the frontend app"
             cd udagram
             cd udagram-frontend
             npm run build
@@ -51,7 +50,7 @@ jobs:
       - run:
           name: API Build
           command: |
-            echo "TODO: Build the backend API"
+            echo "Build the backend API"
             cd udagram
             cd udagram-api
             npm run build
@@ -67,13 +66,18 @@ jobs:
       - aws-cli/setup
       - checkout
       - run:
-          name: Deploy App
+          name: Deploy Frontend
           # TODO: Install, build, deploy in both apps
           command: |
             echo "# TODO: Install, build, deploy in both apps"
-            cd udagram
-            cd udagram-frontend
-            aws s3 cp --recursive --acl public-read ./www s3://mynewapp-udacity
+            aws s3 cp ./www/Archive.zip mynewapp-udacity
+           
+      - run:
+         name: Deploy API
+         command: |
+            aws elasticbeanstalk create-application-version --application-name project --version-label <<pipeline.git.revision>> --source-bundle S3Bucket="mynewapp-udacity",S3Key="Archive.zip"
+            aws elasticbeanstalk update-environment --application-name project --environment-name myProject --version-label <<pipeline.git.revision>>
+
             
 workflows:
   udagram:
@@ -91,3 +95,4 @@ workflows:
       - deploy:
           requires:
             - hold
+      
