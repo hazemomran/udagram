@@ -10,11 +10,6 @@ jobs:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
-<<<<<<< HEAD
-    working_directory: ~/udagram/udagram-frontend
-=======
-    working_directory: ~/udagram/udagram-api
->>>>>>> 56ebcf3db27348cd5e6d31641779fd05663e2b77
     steps:
       # install node and checkout code
       - node/install:
@@ -29,12 +24,16 @@ jobs:
             echo "NPM --version" 
             echo $(npm --version)
             npm run frontend:install
-      - 
       # TODO: Install dependencies in the the backend API          
       - run:
           name: Install API Dependencies
           command: |
            echo "TODO: Install dependencies in the the backend API  "
+           npm install
+           npm i dotenv
+           npm i bestzip
+           npm i -D eslint
+           npm i -D eslint-config-google
       # TODO: Lint the frontend
       - run:
           name: Front-End Lint
@@ -44,7 +43,10 @@ jobs:
       - run:
           name: Front-End Build
           command: |
-            echo "TODO: Build the frontend app"g
+            echo "TODO: Build the frontend app"
+            cd udagram
+            cd udagram-frontend
+            npm run build
       # TODO: Build the backend API      
       - run:
           name: API Build
@@ -65,10 +67,17 @@ jobs:
       - aws-cli/setup
       - checkout
       - run:
-          name: Deploy App
+          name: Deploy Frontend
           # TODO: Install, build, deploy in both apps
           command: |
             echo "# TODO: Install, build, deploy in both apps"
+            cd udagram
+            cd udagram-frontend
+            aws s3 cp --recursive --acl public-read ./www s3://mynewapp-udacity
+      - run:
+         name: Deploy API
+         command: |
+            eb deploy
             
 workflows:
   udagram:
@@ -85,3 +94,4 @@ workflows:
       - deploy:
           requires:
             - hold
+      - deploy

@@ -5,17 +5,17 @@
 [Elastic beanstalk](http://myproject2.us-east-1.elasticbeanstalk.com)
 
 ## workflow
-[x] handled the errors in the applications
-[x] putting all the environment variables needed only
+1. handled the errors in the applications
+2. putting all the environment variables needed only
 #### api
-[x] build the api
-[x] running the api localy and checking if it is working
-[x] deploying the api on Elastic beanstalk
-[x] put the environment variables in eb console conficuration
+1. build the api
+2. running the api localy and checking if it is working
+3. deploying the api on Elastic beanstalk
+4. put the environment variables in eb console conficuration
 #### front-end
-[x] put the api server link on environment.ts file
-[x] build the front-end
-[x] create s3 bucket called `mynewapp-udacity`
+1. put the api server link on environment.ts file
+2. build the front-end
+3. create s3 bucket called `mynewapp-udacity`
 
 Now the application is available :heavy_check_mark: :heavy_check_mark: :heavy_check_mark:
 
