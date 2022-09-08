@@ -74,8 +74,6 @@ jobs:
       - run:
          name: Deploy API
          command: |
-            aws elasticbeanstalk create-application-version --application-name project --version-label <<pipeline.git.revision>> --source-bundle S3Bucket="mynewapp-udacity",S3Key="Archive.zip"
-            aws elasticbeanstalk update-environment --application-name project --environment-name myProject --version-label <<pipeline.git.revision>>
 
             
 workflows:
