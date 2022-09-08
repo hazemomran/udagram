@@ -74,6 +74,7 @@ jobs:
       - run:
          name: Deploy API
          command: |
+            eb init
             eb deploy
             
 workflows:
