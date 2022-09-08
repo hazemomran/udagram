@@ -70,7 +70,6 @@ jobs:
           # TODO: Install, build, deploy in both apps
           command: |
             echo "# TODO: Install, build, deploy in both apps"
-            aws s3 cp ./www/Archive.zip mynewapp-udacity
            
       - run:
          name: Deploy API
